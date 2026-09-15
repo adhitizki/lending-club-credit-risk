@@ -1,0 +1,15 @@
+data/raw/
+data/processed/
+*.csv
+*.parquet
+__pycache__/
+*.pyc
+.venv/
+.env
+kaggle.json
+*.env
+.DS_Store
+/notebook_raw
+/temp
+/docs
+notebook/eda/05-eda-risk-drivers.ipynb
