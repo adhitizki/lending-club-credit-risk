@@ -6,6 +6,7 @@ requires-python = ">=3.12"
 dependencies = [
     "fastapi>=0.140.0",
     "kaggle>=2.2.4",
+    "kaleido>=1.4.0",
     "lightgbm>=4.7.0",
     "numpy>=2.5.1",
     "pandas>=3.0.5",
