@@ -1,15 +1,63 @@
+# ── data ──────────────────────────────────────────────────────────────────────
+data/
 data/raw/
 data/processed/
+data/interim/
+
+# ── file formats ──────────────────────────────────────────────────────────────
 *.csv
 *.parquet
+*.pkl
+*.joblib
+*.pt
+*.onnx
+*.h5
+*.json
+
+# ── python ────────────────────────────────────────────────────────────────────
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── virtual environment ───────────────────────────────────────────────────────
 .venv/
+venv/
+env/
+
+# ── environment and secrets ───────────────────────────────────────────────────
 .env
-kaggle.json
+.env.*
 *.env
+kaggle.json
+*.json
+
+# ── jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ── ide ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── os ────────────────────────────────────────────────────────────────────────
 .DS_Store
-/notebook_raw
-/temp
-/docs
-/config
+Thumbs.db
+desktop.ini
+
+# ── outputs ───────────────────────────────────────────────────────────────────
+outputs/figures/
+outputs/reports/
+
+# ── temp and scratch ──────────────────────────────────────────────────────────
+/temp/
+/notebook_raw/
+/docs/
+/glossary/
+
+# ── keep folder structure ─────────────────────────────────────────────────────
+!**/.gitkeep
