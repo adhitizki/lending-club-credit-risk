@@ -16,14 +16,6 @@ from src.config.features import (
     SENTINEL_MTHS,
 )
 
-# ── engine ────────────────────────────────────────────────────────────────────
-try:
-    import cudf_polars
-    ENGINE = "gpu"
-except ImportError:
-    ENGINE = "cpu"
-
-
 def _to_lazy(df: pl.DataFrame | pl.LazyFrame) -> pl.LazyFrame:
     return df.lazy() if isinstance(df, pl.DataFrame) else df
 
@@ -272,7 +264,3 @@ def cleanse(df: pl.DataFrame | pl.LazyFrame) -> pl.LazyFrame:
         .pipe(impute_by_issue_date, special_features=IMPUTER_SKIP)
         .pipe(select_final)
     )
-
-
-def get_engine() -> str:
-    return ENGINE
