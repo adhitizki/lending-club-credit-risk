@@ -4,6 +4,10 @@ data/raw/
 data/processed/
 data/interim/
 
+# ── artifact ────────────────────────────────────────────────────────────────────
+./artifact/
+artifact/preprocessing/
+
 # ── file formats ──────────────────────────────────────────────────────────────
 *.csv
 *.parquet
