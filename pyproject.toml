@@ -2,19 +2,22 @@
 name = "202607-credit-risk-personal"
 version = "0.1.0"
 description = "Add your description here"
-requires-python = ">=3.12"
+requires-python = ">=3.12, <3.14"
 dependencies = [
+    "cudf-polars-cu13>=26.8.1",
     "fastapi>=0.140.0",
     "kaggle>=2.2.4",
     "kaleido>=1.4.0",
     "lightgbm>=4.7.0",
     "numpy>=2.5.1",
+    "nvidia-cuda-nvrtc>=13.4.59",
     "pandas>=3.0.5",
     "plotly>=6.9.0",
-    "polars>=1.43.2",
+    "polars==1.42.0",
     "pyarrow>=25.0.0",
     "pydantic>=2.13.4",
     "python-dotenv>=1.2.2",
+    "ray[default]>=2.58.0",
     "rich>=15.0.0",
     "scikit-learn>=1.9.0",
     "streamlit>=1.59.1",
