@@ -2,6 +2,7 @@
 import polars as pl
 from src.config.features import (
     KEEP_FEATURES,
+    SCHEMA,
     PERIOD_COL,
     CUTOFF_DATE,
     TARGET,
@@ -9,7 +10,6 @@ from src.config.features import (
     TARGET_MAP,
     ENG_FILL_MTHS,
     ENG_NULL_MTHS,
-    ENG_DROP,
     ENG_CR_LINE,
     IMPUTER_SKIP,
     FINAL_FEATURES,
@@ -93,6 +93,15 @@ def engineer_target(df: pl.DataFrame | pl.LazyFrame) -> pl.LazyFrame:
         .alias(TARGET_ENG)
     )
 
+def casting_schema(df: pl.DataFrame | pl.LazyFrame) -> pl.LazyFrame:
+    """
+    Cast by defined schema
+    """
+    df = _to_lazy(df)
+    cast_exec = [pl.col(column).cast(dtype, strict=False)
+            for column, dtype in SCHEMA.items()
+            if column != "earliest_cr_line"]
+    return df.with_columns(cast_exec)
 
 def engineer_cr_age(df: pl.DataFrame | pl.LazyFrame) -> pl.LazyFrame:
     """
@@ -258,6 +267,7 @@ def cleanse(df: pl.DataFrame | pl.LazyFrame) -> pl.LazyFrame:
         .pipe(filter_sample)
         .pipe(engineer_target)
         .pipe(normalization_casting)
+        .pipe(casting_schema)
         .pipe(engineer_cr_age)
         .pipe(add_null_indicators)
         .pipe(fill_mths_sentinel)
