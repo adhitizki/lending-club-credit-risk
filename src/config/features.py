@@ -18,7 +18,7 @@ TARGET_MAP = {
 }
 
 # ── sentinel for mths_since null fill ─────────────────────────────────────────
-SENTINEL_MTHS = 999
+SENTINEL_MTHS = 0
 
 # ── schema ────────────────────────────────────────────────────────────────────
 SCHEMA: dict[str, pl.DataType] = {
@@ -137,6 +137,6 @@ IMPUTER_SKIP: set[str] = set(ENG_FILL_MTHS + ENG_DROP + [
 # final feature set after all engineering
 FINAL_FEATURES: list[str] = (
     [col for col in KEEP_FEATURES if col not in ENG_DROP]
-    + [f"{col}_is_null" for col in ENG_NULL_MTHS]
+    + [f"{col}_null" for col in ENG_NULL_MTHS]
     + [ENG_CR_LINE]
 )
