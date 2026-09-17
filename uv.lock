@@ -10,7 +10,7 @@ resolution-markers = [
 [[package]]
 name = "202607-credit-risk-personal"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "cudf-polars-cu13" },
     { name = "fastapi" },
